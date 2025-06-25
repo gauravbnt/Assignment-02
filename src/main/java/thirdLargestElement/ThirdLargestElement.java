@@ -27,11 +27,13 @@ public class ThirdLargestElement {
             if (n <= 0) {
                 System.out.println("Invalid size. Size must be positive.");
                 return;
+                
             }
         } else {
             System.out.println("Invalid input. Please enter a valid integer for size.");
             return;
         }
+        
 
         int[] arr = new int[n];
         System.out.println("Enter " + n + " integers:");
@@ -47,5 +49,6 @@ public class ThirdLargestElement {
         int result = thirdLargest(arr);
         System.out.println(result);
         sc.close();
+        
     }
 }
