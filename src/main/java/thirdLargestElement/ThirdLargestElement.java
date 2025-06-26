@@ -32,8 +32,7 @@ public class ThirdLargestElement {
         } else {
             System.out.println("Invalid input. Please enter a valid integer for size.");
             return;
-        }
-        
+        }      
 
         int[] arr = new int[n];
         System.out.println("Enter " + n + " integers:");
