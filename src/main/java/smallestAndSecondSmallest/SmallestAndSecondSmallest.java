@@ -52,8 +52,7 @@ public class SmallestAndSecondSmallest {
                 sc.next(); 
             }
         }
-
-        // Get result
+        
         int[] result = minAndSecondMin(array, len);
 
         System.out.println("Smallest: " + result[0]);

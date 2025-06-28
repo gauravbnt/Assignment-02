@@ -21,7 +21,7 @@ public class SecondLargestElement {
 	    }
 
 	public static void main(String[] args) {
-		 int n = 0;
+		 	int n = 0;
 	        Scanner sc = new Scanner(System.in);
 	        System.out.print("Enter number of elements: ");
 	        if (sc.hasNextInt()) {
