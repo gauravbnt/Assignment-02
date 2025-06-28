@@ -66,6 +66,14 @@ Invalid size. Size must be positive.
 
 ## 💻 How to Run
 
+### **Change Directory**
+
+Navigate to the folder containing the Java file:
+
+```bash
+cd src/main/java/countPairsWithGivenSum
+```
+
 ### **Compile the Program:**
 
 ```bash
