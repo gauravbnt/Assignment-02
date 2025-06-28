@@ -1,5 +1,3 @@
-Absolutely! Here's your updated **README** with clear instructions on how to run **unit tests** for your Java Assignment2 project. This assumes you're writing unit tests using **JUnit 5** and placing them under the standard `src/test/java` directory, following a Gradle-based structure.
-
 ---
 
 # 📚 Java Assignment2 Programs
