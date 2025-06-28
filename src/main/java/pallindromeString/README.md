@@ -1,50 +1,93 @@
-# Check Palindrome String
+---
 
-This Java program checks whether a given **String** is a **Palindrome** or not.
+# 🔁 Palindrome String Checker
 
-# What is a Palindrome String?
+This Java program checks whether a given **string** is a **palindrome** or not.
 
-A **Palindrome** string is a word or phrase that reads the same forwards and backwards (ignoring case).
+---
 
-**Examples:**  
-- "madam" → Palindrome  
-- "racecar" → Palindrome  
-- "hello" → Not a Palindrome
+## ❓ What Is a Palindrome?
+
+A **palindrome** is a sequence of characters that reads the **same forward and backward** (case-insensitive).
+
+### 🧠 Example:
+
+* ✅ `"madam"` is a palindrome
+* ❌ `"hello"` is not a palindrome
+* ✅ `"RaceCar"` is a palindrome (case-insensitive)
+
+---
 
 ## 📂 Package Structure
 
+```
 Assignment2  
 └── pallindromeString  
     └── PallindromeString.java
+```
+
+---
 
 ## 🚀 How It Works
 
 1. The user is prompted to enter a string.
-2. The string is converted to lowercase for case-insensitive comparison.
-3. Characters from the start and end are compared moving inward:
-   - If all corresponding characters match, the string is a palindrome.
-   - Otherwise, it is not.
-4. If input is `null`, it is considered invalid.
+2. The program:
+
+   * Converts the string to lowercase.
+   * Compares characters from both ends moving toward the center.
+3. If all characters match → returns `1` (Palindrome).
+4. If any mismatch occurs → returns `0` (Not a Palindrome).
+
+---
 
 ## 🧾 Sample Input/Output
 
-Enter the string: madam  
-1
+### ✅ Palindrome
 
-Enter the string: hello  
+```
+Enter the string :
+madam
+1
+```
+
+```
+Enter the string :
+RaceCar
+1
+```
+
+### ❌ Not a Palindrome
+
+```
+Enter the string :
+hello
 0
+```
 
-Enter the string: RaceCar  
-1
+### ⚠️ Null Input (programmatically)
+
+If the input is `null`, the function will return `0`.
+
+---
 
 ## 💻 How to Run
 
-**Compile the program:**
+### **Step 1: Change Directory**
 
+```bash
+cd src/main/java/pallindromeString
+```
 
+### **Step 2: Compile the Program**
+
+```bash
 javac PallindromeString.java
+```
 
-**Run the program**
+### **Step 3: Run the Program**
 
-java pallindromeString.PallindromeString
+```bash
+java PallindromeString.java
+```
 
+---
