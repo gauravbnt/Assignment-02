@@ -71,6 +71,14 @@ Count of even subsets:15
 
 ## 💻 How to Run
 
+### **Change Directory**
+
+Navigate to the folder containing the Java file:
+
+```bash
+cd src/main/java/countEvenSubsets
+```
+
 ### **Compile the Program:**
 
 ```bash
