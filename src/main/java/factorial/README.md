@@ -1,4 +1,3 @@
----
 
 # 🔢 Factorial Calculator
 
@@ -68,7 +67,7 @@ Invalid Number...
 ### **Step 1: Change Directory**
 
 ```bash
-cd Assignment2/factorial
+cd src/main/java/factorial
 ```
 
 ### **Step 2: Compile the Program**
@@ -84,4 +83,3 @@ java Factorial.java
 ```
 
 ---
-
