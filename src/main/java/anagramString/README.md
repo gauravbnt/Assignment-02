@@ -72,7 +72,7 @@ javac AnagramString.java
 ### **Run the Program:**
 
 ```bash
-java anagramString.AnagramString
+java AnagramString
 ```
 
 ---
