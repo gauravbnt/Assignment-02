@@ -62,7 +62,7 @@ javac AddMinimumCharacters.java
 ### **Run the Program:**
 
 ```bash
-java AddMinimumCharacters
+java AddMinimumCharacters.java
 ```
 
 ---
