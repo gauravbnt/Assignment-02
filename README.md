@@ -1,6 +1,6 @@
 ---
 
-# 📚 Java Assignment2 Programs
+# 📚 Java Assignment Programs
 
 This repository contains a collection of **Java-based console programs** solving a variety of algorithmic and logical problems, implemented under organized packages. Each module is independently testable with unit tests.
 
@@ -29,7 +29,6 @@ Assignment2/
 │       └── java/
 │           └── [your packages]/
 │               └── *Test.java
-└── README.md
 ```
 
 ---
