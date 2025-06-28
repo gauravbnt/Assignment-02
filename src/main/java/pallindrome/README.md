@@ -1,53 +1,96 @@
-# Check Palindrome Number
+---
 
-This Java program checks whether a given integer number is a **Palindrome** or not.
+# 🔁 Palindrome Number Checker
 
-# What is a Palindrome Number?
+This Java program checks whether a given number is a **palindrome** or not.
 
-A **Palindrome** number is a number that remains the same when its digits are reversed.
+---
 
-**Examples:**  
-121 → Palindrome  
-123 → Not a Palindrome
+## ❓ What Is a Palindrome?
+
+A **palindrome** is a number that reads the **same forward and backward**.
+
+### 🧠 Example:
+
+* ✅ `121` is a palindrome
+* ❌ `123` is not a palindrome
+
+---
 
 ## 📂 Package Structure
 
+```
 Assignment2  
 └── pallindrome  
     └── Pallindrome.java
+```
+
+---
 
 ## 🚀 How It Works
 
-1. The user is prompted to enter an integer.
-2. If the number is negative:
-   - The program prints `"Invalid input"`.
-3. If the number is non-negative:
-   - The program reverses the digits.
-   - It checks if the reversed number equals the original.
-   - If yes, it returns `"Yes"`; otherwise, `"No"`.
-4. If the input is not an integer:
-   - The program prints `"Invalid Input..."`.
+1. Takes a number as input from the user.
+2. Reverses the digits of the number.
+3. Compares the original and reversed numbers:
+
+   * If they match → returns `"Yes"`.
+   * If they don't match → returns `"No"`.
+4. If input is negative or invalid → handles appropriately.
+
+---
 
 ## 🧾 Sample Input/Output
 
-Enter the number: 121  
+### ✅ Valid Palindrome
+
+```
+Enter the number :
+121
 Yes
+```
 
-Enter the number: 123  
+### ❌ Not a Palindrome
+
+```
+Enter the number :
+123
 No
+```
 
-Enter the number: -121  
-Invalid input
+### ❌ Invalid Input
 
-Enter the number: abc  
+```
+Enter the number :
+abc
 Invalid Input...
+```
+
+```
+Enter the number :
+-121
+Invalid input
+```
+
+---
 
 ## 💻 How to Run
 
-**Compile the program:**
+### **Step 1: Change Directory**
 
+```bash
+cd src/main/java/pallindrome
+```
+
+### **Step 2: Compile the Program**
+
+```bash
 javac Pallindrome.java
+```
 
-**Run the program:**
+### **Step 3: Run the Program**
 
-java pallindrome.Pallindrome
+```bash
+java Pallindrome.java
+```
+
+---
