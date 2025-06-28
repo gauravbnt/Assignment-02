@@ -1,105 +1,95 @@
-# 🔢 Smallest and Second Smallest Element
+---
 
-This Java program identifies the **smallest** and **second smallest unique elements** in a given list of integers. It uses a `TreeSet` to automatically remove duplicates and maintain a sorted order.
+# 🔢 Smallest and Second Smallest Element Finder
+
+This Java program finds the **smallest** and **second smallest** unique elements from an input array using a `TreeSet`.
 
 ---
 
-## ❓ Problem Statement
+## ❓ What Does It Do?
 
-Given an array of integers, find the **smallest** and **second smallest** unique elements.  
-- If the array contains only one unique element, the second smallest will be `-1`.
-- If no valid input is provided, both values will be `-1`.
-
----
-
-## ✅ Example
-
-```
-
-Input:
-Enter the size of the array : 6
-Enter 6 integer elements:
-3 1 4 1 5 9
-
-Output:
-Smallest: 1
-Second Smallest: 3
-
-```
-```
-
-Input:
-Enter the size of the array : 1
-Enter 1 integer elements:
-7
-
-Output:
-Smallest: 7
-Second Smallest: -1
-
-```
-```
-
-Input:
-Enter the size of the array : 4
-Enter 4 integer elements:
-5 5 5 5
-
-Output:
-Smallest: 5
-Second Smallest: -1
-
-```
+* Accepts an array of integers.
+* Finds the **smallest** and **second smallest** unique elements.
+* If no second smallest exists (like in arrays with all identical elements), returns `-1` for the second smallest.
 
 ---
 
 ## 📂 Package Structure
 
 ```
-
-SmallestProject/
-└── smallestAndSecondSmallest/
-└── SmallestAndSecondSmallest.java
-└── README.md
-
-````
-
----
-
-## 🧠 How It Works
-
-1. The user enters the number of elements in the array.
-2. The program reads the array while validating all inputs.
-3. It converts the array into a `TreeSet` to:
-   - Sort elements in ascending order
-   - Remove duplicates
-4. Based on the size of the sorted set:
-   - Returns smallest and second smallest
-   - Or `-1` where applicable
-
----
-
-## 💻 How to Compile & Run
-
-### 📦 Compile
-```bash
-javac smallestAndSecondSmallest/SmallestAndSecondSmallest.java
-````
-
-### ▶️ Run
-
-```bash
-java smallestAndSecondSmallest.SmallestAndSecondSmallest
+Assignment2  
+└── smallestAndSecondSmallest  
+    └── SmallestAndSecondSmallest.java
 ```
 
 ---
 
-## 🔒 Input Validation
+## 🚀 How It Works
 
-* Ensures the array size is a **positive integer**.
-* Prompts again if non-integer or invalid values are entered.
-* Validates each array element individually.
+1. The user inputs the array size and elements.
+2. The program stores elements in a `TreeSet` (which automatically sorts and removes duplicates).
+3. Converts the `TreeSet` to an array and:
+
+   * Returns `{-1, -1}` if no elements.
+   * Returns `{min, -1}` if only one unique element.
+   * Otherwise, returns `{min, secondMin}`.
 
 ---
 
+## 🧾 Sample Input/Output
 
+### ✅ Case 1: Normal Case
+
+```
+Enter the size of the array : 6
+Enter 6 integer elements:
+8 2 4 2 6 1
+Smallest: 1
+Second Smallest: 2
+```
+
+### ✅ Case 2: Only One Unique Value
+
+```
+Enter the size of the array : 3
+Enter 3 integer elements:
+5 5 5
+Smallest: 5
+Second Smallest: -1
+```
+
+### ❌ Invalid Input
+
+```
+Enter the size of the array : abc
+❌ Invalid input. Please enter a valid integer.
+```
+
+```
+Enter the size of the array : -2
+❌ Size must be greater than 0.
+```
+
+---
+
+## 💻 How to Run
+
+### **Step 1: Change Directory**
+
+```bash
+cd src/main/java/smallestAndSecondSmallest
+```
+
+### **Step 2: Compile the Program**
+
+```bash
+javac SmallestAndSecondSmallest.java
+```
+
+### **Step 3: Run the Program**
+
+```bash
+java SmallestAndSecondSmallest.java
+```
+
+---
