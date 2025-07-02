@@ -40,6 +40,8 @@ public class ZigZagArray {
             for (int i = 0; i < n; i++) {
                 arr[i] = sc.nextInt();
             }
+            
+            zigZag(arr, n);
             for (int val : arr) {
                 System.out.print(val + " ");
             }
