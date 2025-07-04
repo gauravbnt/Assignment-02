@@ -1,86 +1,87 @@
+---
 
-# 📊 Third Largest Element
+# 🥉 Third Largest Element Finder
 
-This Java program finds the **third largest unique element** in a given list of integers. It uses a `TreeSet` to automatically sort and remove duplicates, ensuring accurate results even with repeated values.
+This Java program finds the **third largest distinct element** in an integer array using a `TreeSet` to automatically sort and remove duplicates.
 
 ---
 
-## ❓ Problem Statement
+## ❓ Problem Description
 
-Given an array of integers, your task is to find the **third largest unique element**. If there are fewer than three unique elements, the program returns `-1`.
+Given an array of integers, the goal is to identify the **third largest distinct number**.
 
----
-
-## ✅ Example
-
-```
-
-Input:
-Enter number of elements: 6
-Enter 6 integers:
-2 5 3 5 8 7
-
-Output:
-5
-
-```
-```
-
-Input:
-Enter number of elements: 2
-Enter 2 integers:
-1 1
-
-Output:
--1
-
-```
+> If fewer than three distinct elements are present, the program returns `-1`.
 
 ---
 
 ## 📂 Package Structure
 
 ```
-
-ThirdLargestProject/
-└── thirdLargestElement/
-└── ThirdLargestElement.java
-
-
-````
-
----
-
-## 🧠 How It Works
-
-1. Takes an array of integers from user input.
-2. Uses a `TreeSet` to:
-   - Automatically sort elements in ascending order.
-   - Remove duplicates.
-3. If fewer than 3 unique elements exist, it returns `-1`.
-4. Otherwise, it returns the 3rd largest unique number (from the end of the list).
-
----
-
-## 💻 How to Compile & Run
-
-### 📦 Compile
-```bash
-javac thirdLargestElement/ThirdLargestElement.java
-````
-
-### ▶️ Run
-
-```bash
-java thirdLargestElement.ThirdLargestElement
+Assignment2  
+└── thirdLargestElement  
+    └── ThirdLargestElement.java
 ```
 
 ---
 
-## 🔒 Input Validations
+## 🚀 How It Works
 
-* Checks if array size is a **positive integer**.
-* Validates that each element entered is a valid integer.
-* If any input is invalid, appropriate error messages are displayed.
+1. The user enters the number of elements and then the elements of the array.
+2. The program uses a `TreeSet` to store unique elements in **ascending order**.
+3. It converts the set into a list and retrieves the element at the `(size - 3)` index.
+4. If the set size is less than 3, it returns `-1`.
+
+---
+
+## 🧾 Sample Input/Output
+
+### ✅ Valid Case
+
+```
+Enter number of elements: 6
+Enter 6 integers:
+10 20 30 40 50 60
+40
+```
+
+### 🔁 Duplicate Elements
+
+```
+Enter number of elements: 5
+Enter 5 integers:
+4 4 2 2 1
+-1
+```
+
+> Explanation: Only 3 unique elements (4, 2, 1) → third largest is 1.
+
+### ❌ Invalid Input
+
+```
+Enter number of elements: 0
+Invalid size. Size must be positive.
+```
+
+---
+
+## 💻 How to Run
+
+### **Step 1: Change Directory**
+
+```bash
+cd src/main/java/thirdLargestElement
+```
+
+### **Step 2: Compile the Program**
+
+```bash
+javac ThirdLargestElement.java
+```
+
+### **Step 3: Run the Program**
+
+```bash
+java ThirdLargestElement.java
+```
 
 ---

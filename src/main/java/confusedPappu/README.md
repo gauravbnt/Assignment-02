@@ -1,56 +1,86 @@
-# Confused Pappu
+---
+# 💰 Confused Pappu
 
-This Java program solves the **"Confused Pappu"** problem where Pappu mistakenly treats the digit `6` as `9` while calculating the returned amount to customers.
+This Java program helps **Confused Pappu** determine how much **extra money** he got when the shopkeeper mistakenly wrote digit `9` instead of `6` while printing the bill.
 
+---
 
 ## ❓ Problem Statement
 
-Pappu works in a billing department and is confused between digits `6` and `9`. Given the correct amount to return, your task is to calculate the **maximum possible extra amount** that Pappu might return due to this confusion.
+Confused Pappu purchased an item for a given amount. But the shopkeeper mistakenly printed `9` instead of `6` in the amount (e.g., 69 becomes 99). Pappu wants to know how much **extra** money he received due to this confusion.
 
-
-##  Example
-
-If the actual amount is `56`,  
-Pappu may interpret it as `59`,  
-Thus, **Extra amount = 59 - 56 = 3**
-
+---
 
 ## 📂 Package Structure
 
-Assignment2
-└── confusedPappu
-└── ConfusedPappu.java
+```
+Assignment2  
+└── confusedPappu  
+    └── ConfusedPappu.java
+```
 
-
+---
 
 ## 🚀 How It Works
 
-1. The user inputs the original amount.
-2. The `revAmount()` function:
-   - Converts every `6` to `9` in the number.
-3. The `extraAmount()` function:
-   - Subtracts the original amount from the converted one.
-4. The result (extra amount returned due to the confusion) is printed.
+1. Accepts the original amount as input.
+2. Reconstructs the **converted amount** by replacing every digit `6` with `9`.
+3. Calculates the **extra money** by subtracting the original amount from the converted amount.
+4. Returns the difference as the result.
 
+---
 
 ## 🧾 Sample Input/Output
 
-Enter the amount: 56
-3
+### 🔢 Input with Digit `6`
 
-Enter the amount: 666
-333
+```
+Enter the amount: 
+69
+Output:
+30
+```
 
-Enter the amount: 123
+🧠 **Explanation**:
+Converted amount = 99 (6 is replaced with 9)
+Extra = 99 - 69 = 30
+
+---
+
+### 🔢 Input with No Digit `6`
+
+```
+Enter the amount: 
+123
+Output:
 0
+```
+
+🧠 **Explanation**:
+No change in amount, so extra = 0
+
+---
 
 
 ## 💻 How to Run
 
-**Compile the program:**
+### **Change Directory**
 
+Navigate to the folder containing the Java file:
+
+```bash
+cd src/main/java/confusedPappu
+```
+### **Compile the Program:**
+
+```bash
 javac ConfusedPappu.java
+```
 
-**Run the program:**
+### **Run the Program:**
 
-java confusedPappu.ConfusedPappu
+```bash
+java ConfusedPappu.java
+```
+
+---

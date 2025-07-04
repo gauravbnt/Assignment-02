@@ -1,45 +1,78 @@
-# Check Nth Fibonacci Number
+---
 
-This Java program calculates the **Nth Fibonacci number** using iteration and returns the result modulo 1000000007.
+# 🧮 Nth Fibonacci Number (Modulo 10⁹+7)
 
-# What is a Fibonacci Number?
+This Java program calculates the **Nth Fibonacci number** using an **iterative approach** and returns the result modulo **1000000007** to avoid overflow for large numbers.
 
-A **Fibonacci** number is a number in a sequence where each number is the sum of the two preceding ones.
+---
 
-**Mathematically:**  
+## ❓ What Is a Fibonacci Number?
+
+A **Fibonacci number** is defined as the sum of the two preceding numbers in the sequence.
+
+**Mathematically:**
+
+```
 F(0) = 0  
 F(1) = 1  
-F(n) = F(n - 1) + F(n - 2)
+F(n) = F(n-1) + F(n-2)  for n ≥ 2
+```
+---
 
 ## 📂 Package Structure
 
+```
 Assignment2  
 └── fibbonacciNumber  
     └── FibbonacciNumber.java
+```
+---
 
 ## 🚀 How It Works
 
-1. The user is prompted to enter an integer.
-2. The program calculates the Nth Fibonacci number using a loop.
-3. The result is taken modulo 1000000007 to avoid overflow.
+1. The user inputs an integer `n`.
+2. The program uses a loop to calculate the `n`th Fibonacci number.
+3. The result is returned **modulo 1000000007** to keep the number within integer limits.
+
+---
 
 ## 🧾 Sample Input/Output
 
-Enter the nth number: 7  
+### ✅ Valid Inputs
+
+
+```
+Enter the nth number : 
+7
 13
+```
 
-Enter the nth number: 0  
-0
+```
+Enter the nth number : 
+50
+365010934
+```
 
-Enter the nth number: 1  
-1
+---
 
 ## 💻 How to Run
 
-**Compile the program:**
+### **Step 1: Change Directory**
 
+```bash
+cd src/main/java/fibbonacciNumber
+```
+
+### **Step 2: Compile the Program**
+
+```bash
 javac FibbonacciNumber.java
+```
 
- **Run the program:**
+### **Step 3: Run the Program**
 
-java fibbonacciNumber.FibbonacciNumber
+```bash
+java FibbonacciNumber.java
+```
+
+---
