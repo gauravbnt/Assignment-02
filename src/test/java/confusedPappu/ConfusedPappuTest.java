@@ -8,48 +8,51 @@ public class ConfusedPappuTest {
     ConfusedPappu cp = new ConfusedPappu();
 
     @Test
-    public void testNoSixes() {
-        assertEquals(0, cp.extraAmount(123));  
-    }
-
-    @Test
-    public void testSingleSix() {
-        assertEquals(3, cp.extraAmount(56));  
+    public void testWithSix() {
+        assertEquals(3, cp.extraAmount(456));  
     }
 
     @Test
     public void testMultipleSixes() {
-        assertEquals(333, cp.extraAmount(666));
-    }
-
-
-    @Test
-    public void testAllNines() {
-        assertEquals(0, cp.extraAmount(999)); 
+        assertEquals(333, cp.extraAmount(666)); 
     }
 
     @Test
-    public void testZeroAmount() {
-        assertEquals(0, cp.extraAmount(0));  
+    public void testNoSix() {
+        assertEquals(0, cp.extraAmount(123));
     }
 
     @Test
-    public void testRevAmountWithSix() {
-        assertEquals(999, cp.revAmount(666));
+    public void testZero() {
+        assertEquals(0, cp.extraAmount(0));
     }
 
     @Test
-    public void testRevAmountWithoutSix() {
-        assertEquals(123, cp.revAmount(123));
+    public void testAllSixes() {
+        assertEquals(3333, cp.extraAmount(6666));  
     }
 
     @Test
-    public void testRevAmountMixedDigits() {
-        assertEquals(993, cp.revAmount(663)); 
+    public void testEndsWithSix() {
+        assertEquals(3, cp.extraAmount(786)); 
     }
 
     @Test
-    public void testLargeNumber() {
-        assertEquals(3333, cp.extraAmount(6666)); 
+    public void testStartsWithSix() {
+        assertEquals(300, cp.extraAmount(612));  
+    }
+
+    @Test
+    public void testNegativeThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            cp.extraAmount(-456);
+        });
+    }
+
+
+
+    @Test
+    public void testLargeNoSix() {
+        assertEquals(0, cp.extraAmount(999999));
     }
 }

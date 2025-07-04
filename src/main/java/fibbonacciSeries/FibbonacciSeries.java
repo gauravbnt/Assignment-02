@@ -6,8 +6,13 @@ public class FibbonacciSeries {
 	
 	public int[] fibbonacciSeries(int n)
 	{
-		if(n<=0)
+	    if (n < 0)
+	        throw new IllegalArgumentException("n must be non-negative");
+
+		if(n==0)
 			return new int[0];
+		if (n > 92) 
+			throw new IllegalArgumentException("Result may overflow for n > 92");
 
 		int fibbo[]=new int[n];
 		fibbo[0]=1;

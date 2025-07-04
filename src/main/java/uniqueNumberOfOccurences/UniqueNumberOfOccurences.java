@@ -11,6 +11,8 @@ public class UniqueNumberOfOccurences {
  
 	public static boolean isFrequencyUnique(int arr[])
 	{
+		if (arr == null || arr.length == 0) return true;
+
 		Map<Integer, Integer> frequencyList = new HashMap<>();
 		Arrays.sort(arr);
 		int count = 1;

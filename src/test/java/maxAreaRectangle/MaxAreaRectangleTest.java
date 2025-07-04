@@ -1,56 +1,85 @@
 package maxAreaRectangle;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class MaxAreaRectangleTest {
 
     @Test
-    void testSingleRectangle() {
-        Rectangle[] rectangles = {
-            new Rectangle(4, 5) 
+    public void testMultipleRectangles() {
+        Rectangle[] rects = {
+            new Rectangle(2, 3),   
+            new Rectangle(5, 2),  
+            new Rectangle(1, 7)    
         };
-        int result = MaxAreaRectangle.calculate_Area(rectangles);
-        assertEquals(20, result);
+        assertEquals(10, MaxAreaRectangle.calculate_Area(rects));
     }
 
     @Test
-    void testMultipleRectangles() {
-        Rectangle[] rectangles = {
-            new Rectangle(4, 5),  
-            new Rectangle(2, 3), 
-            new Rectangle(6, 7)   
+    public void testAllSameArea() {
+        Rectangle[] rects = {
+            new Rectangle(2, 2),
+            new Rectangle(1, 4), 
+            new Rectangle(4, 1) 
         };
-        int result = MaxAreaRectangle.calculate_Area(rectangles);
-        assertEquals(42, result);
+        assertEquals(4, MaxAreaRectangle.calculate_Area(rects));
     }
 
-    
     @Test
-    void testAllZeroArea() {
-        Rectangle[] rectangles = {
+    public void testSingleRectangle() {
+        Rectangle[] rects = {
+            new Rectangle(10, 10)
+        };
+        assertEquals(100, MaxAreaRectangle.calculate_Area(rects));
+    }
+
+    @Test
+    public void testZeroAreaRectangle() {
+        Rectangle[] rects = {
+            new Rectangle(0, 5),
+            new Rectangle(5, 0),
+            new Rectangle(0, 0)
+        };
+        assertEquals(0, MaxAreaRectangle.calculate_Area(rects));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        Rectangle[] rects = {};
+        assertEquals(0, MaxAreaRectangle.calculate_Area(rects));
+    }
+
+    @Test
+    public void testMaxAreaWithLargeNumbers() {
+        Rectangle[] rects = {
+            new Rectangle(1000, 2000),
+            new Rectangle(3000, 1000)
+        };
+        assertEquals(3000000, MaxAreaRectangle.calculate_Area(rects));
+    }
+
+    @Test
+    public void testNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> {
+            MaxAreaRectangle.calculate_Area(null);
+        });
+    }
+
+    @Test
+    public void testNegativeDimensionsManuallyCreated() {
+        Rectangle[] rects = {
+            new Rectangle(3, -2)
+        };
+        assertEquals(0, MaxAreaRectangle.calculate_Area(rects)); 
+    }
+
+    @Test
+    public void testMixedZeroAndPositive() {
+        Rectangle[] rects = {
             new Rectangle(0, 10),
-            new Rectangle(5, 0)
+            new Rectangle(5, 2)
         };
-        int result = MaxAreaRectangle.calculate_Area(rectangles);
-        assertEquals(0, result);
-    }
-
-    @Test
-    void testNegativeValues() {
-        Rectangle[] rectangles = {
-            new Rectangle(-4, 5),
-            new Rectangle(3, -7),
-            new Rectangle(2, 3)
-        };
-        int result = MaxAreaRectangle.calculate_Area(rectangles);
-        assertEquals(6, result);
-    }
-
-    @Test
-    void testEmptyArray() {
-        Rectangle[] rectangles = new Rectangle[0];
-        int result = MaxAreaRectangle.calculate_Area(rectangles);
-        assertEquals(0, result);
+        assertEquals(10, MaxAreaRectangle.calculate_Area(rects));
     }
 }

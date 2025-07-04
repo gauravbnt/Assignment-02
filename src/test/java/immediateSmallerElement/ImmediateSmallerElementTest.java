@@ -1,44 +1,64 @@
 package immediateSmallerElement;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class ImmediateSmallerElementTest {
 
     @Test
-    public void testFirstCase() {
-        int[] input = {4, 2, 1, 5, 3};
+    public void testStandardArray() {
+        int[] arr = {4, 2, 1, 5, 3};
         int[] expected = {2, 1, -1, 3, -1};
-        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(input, input.length));
-    }
-
-    @Test
-    public void testAllIncreasing() {
-        int[] input = {1, 2, 3, 4, 5};
-        int[] expected = {-1, -1, -1, -1, -1};
-        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(input, input.length));
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
     }
 
     @Test
     public void testAllDecreasing() {
-        int[] input = {5, 4, 3, 2, 1};
-        int[] expected = {4, 3, 2, 1, -1};
-        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(input, input.length));
+        int[] arr = {9, 7, 5, 3, 1};
+        int[] expected = {7, 5, 3, 1, -1};
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
+    }
+
+    @Test
+    public void testAllIncreasing() {
+        int[] arr = {1, 2, 3, 4, 5};
+        int[] expected = {-1, -1, -1, -1, -1};
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
+    }
+
+    @Test
+    public void testWithRepeatedElements() {
+        int[] arr = {5, 5, 5, 5};
+        int[] expected = {-1, -1, -1, -1};
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
+    }
+
+    @Test
+    public void testMixedValues() {
+        int[] arr = {8, 1, 6, 3, 9};
+        int[] expected = {1, -1, 3, -1, -1};
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
     }
 
     @Test
     public void testSingleElement() {
-        int[] input = {10};
+        int[] arr = {10};
         int[] expected = {-1};
-        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(input, input.length));
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
     }
 
     @Test
-    public void testTwoElementsDecreasing() {
-        int[] input = {10, 5};
-        int[] expected = {5, -1};
-        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(input, input.length));
+    public void testEmptyArray() {
+        int[] arr = {};
+        int[] expected = {};
+        assertArrayEquals(expected, ImmediateSmallerElement.immediateSmaller(arr, arr.length));
     }
 
-    
+    @Test
+    public void testMismatchedSize() {
+        int[] arr = {3, 2};
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            ImmediateSmallerElement.immediateSmaller(arr, 5); 
+        });
+    }
 }

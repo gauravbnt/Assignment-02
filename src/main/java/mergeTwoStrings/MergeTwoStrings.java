@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class MergeTwoStrings {
 	public static String merge(String s1,String s2) {
+	    if (s1 == null || s2 == null) {
+	        throw new NullPointerException("Input strings must not be null.");
+	    }
+
 		char a[]=s1.toCharArray();
 		char b[]=s2.toCharArray();
 		

@@ -55,4 +55,17 @@ public class ThirdLargestElementTest {
         int[] arr = {5};
         assertEquals(-1, ThirdLargestElement.thirdLargest(arr));
     }
+    
+    @Test
+    public void testEmptyArray() {
+        int[] arr = {};
+        assertEquals(-1, ThirdLargestElement.thirdLargest(arr));
+    }
+
+    @Test
+    public void testNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> {
+            ThirdLargestElement.thirdLargest(null);
+        });
+    }
 }

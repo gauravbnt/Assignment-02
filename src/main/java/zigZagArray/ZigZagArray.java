@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class ZigZagArray {
 
     public static void zigZag(int[] arr, int n) {
+        if (arr == null || n < 0 || n > arr.length) {
+            throw new IllegalArgumentException("Invalid input array or size");
+        }
+
         for (int i = 0; i < n - 1; i++) {
             if (i % 2 == 0) {
                 if (arr[i] > arr[i + 1]) {
@@ -40,6 +44,8 @@ public class ZigZagArray {
             for (int i = 0; i < n; i++) {
                 arr[i] = sc.nextInt();
             }
+            
+            zigZag(arr, n);
             for (int val : arr) {
                 System.out.print(val + " ");
             }

@@ -23,19 +23,24 @@ public class CountEvenSubsets {
 		Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of array:");
         int size = sc.nextInt();
-        if (size < 0) {
-            System.out.println("Invalid input");
-           
-            return;
+        if(sc.hasNextInt())
+        {
+	        if (size < 0) {
+	            System.out.println("Invalid input");    
+	            return;
+	        }
+	 
+	        int arr[] = new int[size];
+	        System.out.println("Enter elements in array:");
+	        for (int i = 0; i < arr.length; i++) {
+	            arr[i] = sc.nextInt();
+	        }
+	        
+	        System.out.println("Count of even subsets:" + getCountForEvenSubset(arr, size));
+
         }
+        else
  
-        int arr[] = new int[size];
-        System.out.println("Enter elements in array:");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-        }
- 
-        System.out.println("Count of even subsets:" + getCountForEvenSubset(arr, size));
         sc.close();
     }
 

@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class StockBuyAndSellPartTwo {
 	
 	 public static int maxProfit(int[] prices, int n) {
+		 
+		    if (prices == null || n <= 0) {
+		        throw new IllegalArgumentException("Input array is null or size is invalid");
+		    }
+
 	        int count = 0;
 
 	        for (int i = 1; i < n; i++) {

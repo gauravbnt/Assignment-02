@@ -1,6 +1,7 @@
 package zigZagArray;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,7 @@ public class ZigZagArrayTest {
     @Test
     public void testAlreadyZigZag() {
         int[] arr = {1, 3, 2, 4, 3};
-        int[] expected = {1, 3, 2, 4, 3}; // already zig-zag
+        int[] expected = {1, 3, 2, 4, 3}; 
         ZigZagArray.zigZag(arr, arr.length);
         assertArrayEquals(expected, arr);
     }
@@ -26,7 +27,7 @@ public class ZigZagArrayTest {
     @Test
     public void testDescendingInput() {
         int[] arr = {9, 8, 7, 6, 5};
-        int[] expected = {8, 9, 6, 7, 5}; // One possible zig-zag
+        int[] expected = {8, 9, 6, 7, 5}; 
         ZigZagArray.zigZag(arr, arr.length);
         assertArrayEquals(expected, arr);
     }
@@ -62,6 +63,17 @@ public class ZigZagArrayTest {
         ZigZagArray.zigZag(arr, arr.length);
         assertArrayEquals(expected, arr);
     }
+    
+
+    @Test
+    public void testNegativeSize() {
+        int[] arr = {1, 2, 3};
+        assertThrows(IllegalArgumentException.class, () -> {
+            ZigZagArray.zigZag(arr, -1);
+        });
+    }
+
+
 }
 
 

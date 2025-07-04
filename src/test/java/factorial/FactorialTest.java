@@ -1,35 +1,53 @@
 package factorial;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class FactorialTest {
 
-    Factorial f = new Factorial();
+    Factorial factorial = new Factorial();
+
 
     @Test
-    void testFactorialOfZero() {
-        assertEquals(1, f.factorial(0), "0! should be 1");
+    public void testFactorialOfZero() {
+        assertEquals(1, factorial.factorial(0));
     }
 
     @Test
-    void testFactorialOfOne() {
-        assertEquals(1, f.factorial(1), "1! should be 1");
+    public void testFactorialOfOne() {
+        assertEquals(1, factorial.factorial(1));
     }
 
     @Test
-    void testFactorialOfPositiveNumber() {
-        assertEquals(120, f.factorial(5), "5! should be 120");
-        assertEquals(3628800, f.factorial(10), "10! should be 3628800");
+    public void testFactorialOfSmallNumber() {
+        assertEquals(120, factorial.factorial(5));
     }
 
     @Test
-    void testFactorialOfMaxValidInt() {
-        assertEquals(2432902008176640000L, f.factorial(20), "20! should be correct");
+    public void testFactorialOfTen() {
+        assertEquals(3628800, factorial.factorial(10));
+    }
+
+
+    @Test
+    public void testFactorialOfNegativeNumber() {
+        assertEquals(-1, factorial.factorial(-5));
     }
 
     @Test
-    void testNegativeInput() {
-        assertEquals(-1, f.factorial(-5), "Negative input should return -1");
+    public void testFactorialOfNegativeOne() {
+        assertEquals(-1, factorial.factorial(-1));
+    }
+
+
+    @Test
+    public void testFactorialOfLargeNumberCausingOverflow() {
+        long result = factorial.factorial(21);
+        assertTrue(result < 0, "Expected overflow to result in negative value");
+    }
+
+    @Test
+    public void testFactorialOf20ShouldBeCorrect() {
+        assertEquals(2432902008176640000L, factorial.factorial(20));
     }
 }

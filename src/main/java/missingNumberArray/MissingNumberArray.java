@@ -5,16 +5,21 @@ import java.util.Scanner;
 
 public class MissingNumberArray {
 	public static int missingNumber(int arr[],int n) {
-		int expectedSum=n*(n+1)/2;
-		int temp=0;
-		int sum=0;
-		Arrays.sort(arr);
-		for(int i=0;i<n-1;i++)
-		{
-			sum+=arr[i];
-		}
-		temp=expectedSum-sum;
-		return temp;
+		
+	    if (arr == null) {
+	        throw new NullPointerException("Input array is null.");
+	    }
+
+	    if (arr.length != n - 1) {
+	        throw new IllegalArgumentException("Array must contain exactly n-1 elements.");
+	    }
+
+	    int expectedSum = n * (n + 1) / 2;
+	    int sum = 0;
+	    for (int i = 0; i < arr.length; i++) {
+	        sum += arr[i];
+	    }
+	    return expectedSum - sum;
 	}
 
 	public static void main(String[] args) {

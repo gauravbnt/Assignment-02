@@ -19,6 +19,9 @@ class Rectangle {
 public class MaxAreaRectangle {
 
  public static int calculate_Area(Rectangle[] rects) {
+	    if (rects == null) 
+	    	throw new NullPointerException("Rectangle array cannot be null");
+
      int maxArea = 0;
      for (Rectangle r : rects) {
          int area = r.area();

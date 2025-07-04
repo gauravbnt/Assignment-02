@@ -79,4 +79,11 @@ class UniqueSubsetsTest {
         assertEquals(expected.size(), result.size());
         assertTrue(result.containsAll(expected));
     }
+    
+    @Test
+    public void testNegativeAndPositive() {
+        int[] arr = {-1, 0, 1};
+        List<List<Integer>> actual = UniqueSubsets.getAllSubsets(arr, arr.length);
+        assertEquals(8, actual.size()); // 2^3 = 8 subsets
+    }
 }

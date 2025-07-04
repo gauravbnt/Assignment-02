@@ -3,24 +3,23 @@ package equillibriumPoint;
 import java.util.Scanner;
 
 public class EquillibriumPoint {
-	public static int equillibriumPoint(int arr[],int n)
-	{
-		if(n == 1) return 1;
-		if(n == 2) return -1;
-		
-		int temp = 0;
-		for(int i=1;i<n-1;i++)// 1 2 4 3 0
-		{
-			if(getSum(0, i, arr) == getSum(i+1, n, arr))
-			{
-				temp = i+1;
-				break;
-			}
-			else
-				temp = -1;
-		}
-		return temp;
+	public static int equillibriumPoint(int arr[], int n) {
+	    if (arr == null) throw new NullPointerException("Array is null");
+	    if (n <= 0) return -1;
+	    if (n > arr.length) throw new ArrayIndexOutOfBoundsException("Size > array length");
+	    if (n == 1) return 1;
+	    if (n == 2) return -1;
+
+	    int temp = -1;
+	    for (int i = 1; i < n - 1; i++) {
+	        if (getSum(0, i, arr) == getSum(i + 1, n, arr)) {
+	            temp = i + 1;
+	            break;
+	        }
+	    }
+	    return temp;
 	}
+	
 	private static int getSum(int start,int end, int arr[])
 	{
 		int sum = 0;

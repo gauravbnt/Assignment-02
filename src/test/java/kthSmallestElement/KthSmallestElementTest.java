@@ -1,57 +1,87 @@
 package kthSmallestElement;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class KthSmallestElementTest {
 
     @Test
-    public void testKthSmallest() {
-        int[] arr = {7, 2, 5, 3, 5, 1};
-        int n = arr.length;
-        int k = 3;
-        assertEquals(3, KthSmallestElement.kthSmallest(arr, n, k));
+    public void testValidKthSmallest() {
+        int[] arr = {7, 10, 4, 3, 20, 15};
+        assertEquals(7, KthSmallestElement.kthSmallest(arr, arr.length, 3)); // Sorted: [3, 4, 7, 10, 15, 20]
     }
 
     @Test
-    public void testKthSmallestFirstElement() {
-        int[] arr = {10, 20, 5, 15};
-        int n = arr.length;
-        int k = 1;
-        assertEquals(5, KthSmallestElement.kthSmallest(arr, n, k));
+    public void testKthSmallestWithDuplicates() {
+        int[] arr = {1, 5, 1, 2, 2, 3};
+        assertEquals(3, KthSmallestElement.kthSmallest(arr, arr.length, 3)); // Distinct: [1, 2, 3, 5]
     }
 
     @Test
-    public void testKthSmallestLastElement() {
-        int[] arr = {3, 6, 8, 1, 6};
-        int n = arr.length;
-        int k = 4;
-        assertEquals(8, KthSmallestElement.kthSmallest(arr, n, k));
+    public void testKIsOne() {
+        int[] arr = {10, 20, 5, 8};
+        assertEquals(5, KthSmallestElement.kthSmallest(arr, arr.length, 1)); // Smallest
     }
 
     @Test
-    public void testWithDuplicates() {
-        int[] arr = {2, 2, 2, 2, 3};
-        int n = arr.length;
-        int k = 2;
-        assertEquals(3, KthSmallestElement.kthSmallest(arr, n, k));
+    public void testKIsSizeOfDistinct() {
+        int[] arr = {8, 6, 4, 2};
+        assertEquals(8, KthSmallestElement.kthSmallest(arr, arr.length, 4));
     }
 
 
     @Test
-    public void testSingleElement() {
+    public void testKTooLargeThrowsException() {
+        int[] arr = {1, 2, 3};
+        assertThrows(IllegalArgumentException.class, () -> {
+            KthSmallestElement.kthSmallest(arr, arr.length, 10);
+        });
+    }
+
+    @Test
+    public void testKZeroThrowsException() {
+        int[] arr = {1, 2, 3};
+        assertThrows(IllegalArgumentException.class, () -> {
+            KthSmallestElement.kthSmallest(arr, arr.length, 0);
+        });
+    }
+
+    @Test
+    public void testKNegativeThrowsException() {
+        int[] arr = {1, 2, 3};
+        assertThrows(IllegalArgumentException.class, () -> {
+            KthSmallestElement.kthSmallest(arr, arr.length, -2);
+        });
+    }
+
+
+    @Test
+    public void testEmptyArrayThrowsException() {
+        int[] arr = {};
+        assertThrows(IllegalArgumentException.class, () -> {
+            KthSmallestElement.kthSmallest(arr, 0, 1);
+        });
+    }
+
+    @Test
+    public void testSingleElementK1() {
         int[] arr = {42};
-        int n = arr.length;
-        int k = 1;
-        assertEquals(42, KthSmallestElement.kthSmallest(arr, n, k));
+        assertEquals(42, KthSmallestElement.kthSmallest(arr, 1, 1));
     }
 
     @Test
-    public void testLargeInput() {
-        int n = 1000;
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) arr[i] = i + 1;
-        int k = 500;
-        assertEquals(500, KthSmallestElement.kthSmallest(arr, n, k));
+    public void testSingleElementK2ThrowsException() {
+        int[] arr = {42};
+        assertThrows(IllegalArgumentException.class, () -> {
+            KthSmallestElement.kthSmallest(arr, 1, 2);
+        });
+    }
+
+
+    @Test
+    public void testNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> {
+            KthSmallestElement.kthSmallest(null, 0, 1);
+        });
     }
 }

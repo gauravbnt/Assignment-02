@@ -47,6 +47,13 @@ public class StockBuyAndSellPartOneTest {
         assertEquals(1, result.size());
         assertArrayEquals(new int[]{0, 1}, result.get(0));
     }
+    
+    @Test
+    public void testEmptyArray() {
+        int[] prices = {};
+        List<int[]> result = StockBuyAndSellPartOne.stockBuySell(prices);
+        assertTrue(result.isEmpty());
+    }
 
  
 }

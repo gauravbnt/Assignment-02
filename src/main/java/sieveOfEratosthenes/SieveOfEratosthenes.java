@@ -8,7 +8,13 @@ public class SieveOfEratosthenes {
     public static List<Integer> sieveOfEratosthenes(int N) {
 
 	List<Integer> primes = new ArrayList<>();
+	
+    if (N < 2) {
+        return primes; 
+    }
+
     boolean[] isPrime = new boolean[N + 1];
+    
 
     for (int i = 2; i <= N; i++) {
         isPrime[i] = true;

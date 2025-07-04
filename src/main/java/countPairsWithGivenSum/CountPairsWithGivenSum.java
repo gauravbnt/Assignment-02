@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class CountPairsWithGivenSum {
 	public static int getPairsCount(int arr[],int n ,int k) {
+	    if (arr == null) {
+	        throw new NullPointerException("Input array cannot be null");
+	    }
+
 		int count=0;
 		for(int i=0;i<n-1;i++)
 		{
@@ -44,8 +48,14 @@ public class CountPairsWithGivenSum {
                 return;
             }
         }
+        int k=0;
         System.out.println("Enter the sum to check  : ");
-        int k=sc.nextInt();
+        if (sc.hasNextInt()) {
+            k = sc.nextInt();
+        } else {
+            System.out.println("Invalid sum. Please enter a valid integer.");
+            return;
+        }
         
         System.out.println(getPairsCount(arr, n, k));
         sc.close();

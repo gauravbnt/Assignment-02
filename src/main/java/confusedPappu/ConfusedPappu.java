@@ -11,6 +11,10 @@ public class ConfusedPappu {
     }
 
     public int revAmount(int amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Negative amounts are not allowed.");
+        }
+
         int conv = 0;
         int mul = 1;
         while (amount > 0) {
@@ -27,8 +31,9 @@ public class ConfusedPappu {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the amount: ");
+ 
         int amount = sc.nextInt();
-
+        
         ConfusedPappu cp = new ConfusedPappu();
         int extra = cp.extraAmount(amount);
         System.out.println("" + extra);

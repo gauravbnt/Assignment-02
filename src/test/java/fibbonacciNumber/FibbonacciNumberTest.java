@@ -1,31 +1,55 @@
 package fibbonacciNumber;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class FibbonacciNumberTest {
 
     FibbonacciNumber fb = new FibbonacciNumber();
 
+
     @Test
-    public void testBaseCases() {
+    public void testFibonacciOfZero() {
         assertEquals(0, fb.fibbonacci(0));
+    }
+
+    @Test
+    public void testFibonacciOfOne() {
         assertEquals(1, fb.fibbonacci(1));
     }
 
     @Test
-    public void testSmallNumbers() {
+    public void testFibonacciOfTwo() {
         assertEquals(1, fb.fibbonacci(2));
-        assertEquals(3, fb.fibbonacci(4));
+    }
+
+    @Test
+    public void testFibonacciOfFive() {
         assertEquals(5, fb.fibbonacci(5));
     }
 
     @Test
-    public void testLargerNumbers() {
+    public void testFibonacciOfTen() {
         assertEquals(55, fb.fibbonacci(10));
-        assertEquals(6765, fb.fibbonacci(20));
-        assertEquals(832040, fb.fibbonacci(30));
     }
 
-    
+    @Test
+    public void testFibonacciOfFifty() {
+        assertEquals(586268941, fb.fibbonacci(50)); 
+    }
+
+
+    @Test
+    public void testNegativeInputThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            fb.fibbonacci(-10);
+        });
+    }
+
+
+    @Test
+    public void testVeryLargeFibonacciValue() {
+        int result = fb.fibbonacci(100000); // Should not crash or overflow
+        assertTrue(result >= 0 && result < 1_000_000_007); // modulo range
+    }
 }

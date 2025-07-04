@@ -36,4 +36,17 @@ public class UniqueNumberOfOccurencesTest {
 		int arr[]= {1,1,-1,-2,-2,-2,4,4,4,4};
 		assertTrue(UniqueNumberOfOccurences.isFrequencyUnique(arr));
 	}
+	
+	@Test
+	public void testEmptyArray() {
+	    int[] arr = {};
+	    assertEquals(true, UniqueNumberOfOccurences.isFrequencyUnique(arr));
+	}
+
+	@Test
+	public void testSingleElement() {
+	    int[] arr = {5};
+	    assertEquals(true, UniqueNumberOfOccurences.isFrequencyUnique(arr));
+	}
+
 }

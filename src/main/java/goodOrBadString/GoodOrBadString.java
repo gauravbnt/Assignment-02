@@ -8,10 +8,11 @@ import java.util.Scanner;
 public class GoodOrBadString {
 	public static int isGoodorBad(String str1)
 	{
-		if(str1.length() == 0){
-			System.out.println("Invalid input");
-			return 0;
-		}
+	    if (str1 == null || str1.length() == 0) {
+	        System.out.println("Invalid input");
+	        return 0;
+	    }
+
 		str1 = str1.toLowerCase();
 		List<Character> vowels = new ArrayList<>(Arrays.asList('a','e','i','o','u'));
 		

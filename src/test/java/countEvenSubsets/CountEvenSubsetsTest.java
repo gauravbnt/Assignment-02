@@ -1,56 +1,64 @@
 package countEvenSubsets;
 
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CountEvenSubsetsTest {
+public class CountEvenSubsetsTest {
 
     @Test
-    void testEmptyArray() {
-        int[] arr = {};
-        assertEquals(0, CountEvenSubsets.getCountForEvenSubset(arr, 0));
+    public void testThreeUniqueEvens() {
+        assertEquals(7, CountEvenSubsets.getCountForEvenSubset(new int[]{2, 4, 6}, 3));
     }
 
     @Test
-    void testAllOddNumbers() {
-        int[] arr = {1, 3, 5, 7, 9};
-        assertEquals(0, CountEvenSubsets.getCountForEvenSubset(arr, arr.length));
+    public void testRepeatedEvenNumbers() {
+        assertEquals(1, CountEvenSubsets.getCountForEvenSubset(new int[]{2, 2, 2}, 3));
     }
 
     @Test
-    void testSingleEvenNumber() {
-        int[] arr = {2};
-        assertEquals(1, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // 2^1 - 1 = 1
+    public void testMixedOddsAndEvens() {
+        assertEquals(3, CountEvenSubsets.getCountForEvenSubset(new int[]{1, 3, 5, 2, 4}, 5));
     }
 
     @Test
-    void testDuplicateEvenNumbers() {
-        int[] arr = {2, 2, 4, 4};
-        assertEquals(3, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // unique = 2,4 → 2^2 - 1 = 3
+    public void testWithZero() {
+        assertEquals(31, CountEvenSubsets.getCountForEvenSubset(new int[]{0, 2, 4, 6, 8}, 5));
     }
 
     @Test
-    void testMixedEvenAndOddNumbers() {
-        int[] arr = {1, 2, 3, 4, 5};
-        assertEquals(3, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // even = 2,4 → 2^2 - 1 = 3
+    public void testWithOneEven() {
+        assertEquals(1, CountEvenSubsets.getCountForEvenSubset(new int[]{10}, 1));
     }
 
     @Test
-    void testMultipleUniqueEvenNumbers() {
-        int[] arr = {2, 4, 6};
-        assertEquals(7, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // 2^3 - 1 = 7
+    public void testNoEvens() {
+        assertEquals(0, CountEvenSubsets.getCountForEvenSubset(new int[]{1, 3, 5, 7}, 4));
     }
 
     @Test
-    void testAllSameEvenNumbers() {
-        int[] arr = {8, 8, 8, 8};
-        assertEquals(1, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // only one unique even → 2^1 - 1 = 1
+    public void testEmptyArray() {
+        assertEquals(0, CountEvenSubsets.getCountForEvenSubset(new int[]{}, 0));
     }
 
     @Test
-    void testNegativeEvenNumbers() {
-        int[] arr = {-2, -4, -6};
-        assertEquals(7, CountEvenSubsets.getCountForEvenSubset(arr, arr.length)); // unique = 3 → 2^3 - 1 = 7
+    public void testNegativeOddsOnly() {
+        assertEquals(0, CountEvenSubsets.getCountForEvenSubset(new int[]{-1, -3, -7}, 3));
+    }
+
+    @Test
+    public void testNegativeEvens() {
+        assertEquals(3, CountEvenSubsets.getCountForEvenSubset(new int[]{-2, -4}, 2));
+    }
+
+    @Test
+    public void testMinMaxIntegerValues() {
+        assertEquals(1, CountEvenSubsets.getCountForEvenSubset(new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE}, 2));
+    }
+
+    @Test
+    public void testNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> {
+            CountEvenSubsets.getCountForEvenSubset(null, 0);
+        });
     }
 }

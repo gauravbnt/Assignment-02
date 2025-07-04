@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class ImmediateSmallerElement {
     public static int[] immediateSmaller(int[] arr, int n) {
+        if (arr == null || n == 0) return new int[0];
+
         int[] result = new int[n];
 
         for (int i = 0; i < n - 1; i++) {

@@ -1,29 +1,25 @@
 package checkForSubsequence;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class CheckForSubsequenceTest {
-	
+
     @Test
-    public void testSubsequenceMatch() {
-        assertEquals(1, CheckForSubsequence.isSubSequence("abc", "ahbgdc"));
+    public void testValidSubsequence() {
+        assertEquals(1, CheckForSubsequence.isSubSequence("abc", "a1b2c3"));
+        assertEquals(1, CheckForSubsequence.isSubSequence("ace", "abcdef"));
     }
 
     @Test
-    public void testSubsequenceNoMatch() {
-        assertEquals(0, CheckForSubsequence.isSubSequence("axc", "ahbgdc"));
+    public void testInvalidSubsequence() {
+        assertEquals(0, CheckForSubsequence.isSubSequence("abc", "acb"));  // order matters
+        assertEquals(0, CheckForSubsequence.isSubSequence("xyz", "abcde"));
     }
 
     @Test
-    public void testExactMatch() {
-        assertEquals(1, CheckForSubsequence.isSubSequence("abc", "abc"));
-    }
-
-    @Test
-    public void testWrongOrder() {
-        assertEquals(0, CheckForSubsequence.isSubSequence("abc", "acb"));
+    public void testSameStrings() {
+        assertEquals(1, CheckForSubsequence.isSubSequence("hello", "hello"));
     }
 
     @Test
@@ -33,16 +29,37 @@ public class CheckForSubsequenceTest {
 
     @Test
     public void testEmptyS2() {
-        assertEquals(0, CheckForSubsequence.isSubSequence("abc", ""));
+        assertEquals(0, CheckForSubsequence.isSubSequence("something", ""));
     }
 
     @Test
-    public void testRepeatedCharacters() {
-        assertEquals(1, CheckForSubsequence.isSubSequence("aab", "aaab"));
+    public void testBothEmpty() {
+        assertEquals(1, CheckForSubsequence.isSubSequence("", ""));
     }
-    
+
     @Test
-    public void testNotEnoughRepeatedCharacters() {
-        assertEquals(0, CheckForSubsequence.isSubSequence("aab", "ab"));
+    public void testSpecialCharacters() {
+        assertEquals(1, CheckForSubsequence.isSubSequence("@!", "a@b!c"));
+        assertEquals(0, CheckForSubsequence.isSubSequence("@#", "abc"));
+    }
+
+    @Test
+    public void testS1LongerThanS2() {
+        assertEquals(0, CheckForSubsequence.isSubSequence("abcdef", "abc"));
+    }
+
+    @Test
+    public void testNullInputs() {
+        assertThrows(NullPointerException.class, () -> {
+            CheckForSubsequence.isSubSequence(null, "abc");
+        });
+
+        assertThrows(NullPointerException.class, () -> {
+            CheckForSubsequence.isSubSequence("abc", null);
+        });
+
+        assertThrows(NullPointerException.class, () -> {
+            CheckForSubsequence.isSubSequence(null, null);
+        });
     }
 }

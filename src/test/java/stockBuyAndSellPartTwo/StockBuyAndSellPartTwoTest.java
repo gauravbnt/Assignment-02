@@ -46,4 +46,6 @@ public class StockBuyAndSellPartTwoTest {
         int result = StockBuyAndSellPartTwo.maxProfit(prices, prices.length);
         assertEquals(2, result);
     }
+    
+    
 }

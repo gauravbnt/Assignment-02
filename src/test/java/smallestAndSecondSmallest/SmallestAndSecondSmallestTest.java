@@ -53,4 +53,19 @@ class SmallestAndSecondSmallestTest {
         int[] result = SmallestAndSecondSmallest.minAndSecondMin(new int[]{0, 0, 1}, 3);
         assertArrayEquals(new int[]{0, 1}, result);
     }
+    @Test
+    public void testNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> {
+            SmallestAndSecondSmallest.minAndSecondMin(null, 0);
+        });
+    }
+
+    @Test
+    public void testArrayWithMinAndMaxValues() {
+        int[] arr = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int[] expected = {Integer.MIN_VALUE, Integer.MAX_VALUE};
+        assertArrayEquals(expected, SmallestAndSecondSmallest.minAndSecondMin(arr, arr.length));
+    }
+
+    
 }

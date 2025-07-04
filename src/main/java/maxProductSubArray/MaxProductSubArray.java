@@ -1,65 +1,53 @@
 package maxProductSubArray;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-	public class MaxProductSubArray {
-		public static Integer maxProduct(Integer arr[]){
-			if(arr.length==1)
-				return arr[0];
+public class MaxProductSubArray {
 
-		Arrays.sort(arr);
-		List<Integer> mainList = new ArrayList<>();
+    public static int maxProduct(int[] nums) {
+        if (nums == null || nums.length == 0)
+            throw new IllegalArgumentException("Input array must not be null or empty");
 
-		for(int i:arr){
-			if(i<0)
-				mainList.add(i);
-		}
+        int maxProduct = nums[0];
+        int minProduct = nums[0];
+        int result = nums[0];
 
-		int temp = 0;
+        for (int i = 1; i < nums.length; i++) {
+            int current = nums[i];
 
-		if(mainList.size()%2!=0)
-			temp = mainList.get(mainList.size()-1);
+            if (current < 0) {
+                int temp = maxProduct;
+                maxProduct = minProduct;
+                minProduct = temp;
+            }
 
-		mainList = new ArrayList<>(Arrays.asList(arr));
+            maxProduct = Math.max(current, maxProduct * current);
+            minProduct = Math.min(current, minProduct * current);
 
-		if(temp != 0)
-			mainList.remove(mainList.indexOf(temp));
+            result = Math.max(result, maxProduct);
+        }
 
-		int mul = 1;
-		for(int i:mainList)
-		{
-			if(i!=0 && i!=1) 
-				mul*=i;
-		}
+        return result;
+    }
 
-		return mul;
-	}
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter size: ");
-		int size = sc.nextInt();
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
 
-		if(size<=0) {
-			System.out.println("Invalid input");
-			return;
-		}
-		Integer arr[] = new Integer[size];
-		
-		for(int i=0;i<size;i++)
-			arr[i] = sc.nextInt();
-		
-		System.out.println(maxProduct(arr));
-	}
- 
+        if (n <= 0) {
+            System.out.println("Invalid input. Size must be positive.");
+            return;
+        }
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Maximum Product Subarray: " + maxProduct(arr));
+        sc.close();
+    }
 }
-
-
- 
-
-
- 
